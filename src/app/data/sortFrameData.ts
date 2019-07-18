@@ -1,4 +1,4 @@
-import { _fn_parseFrameData } from "./helpers";
+import { _fn_parseFrameData } from './helpers';
 
 export const fn_sortFrameData = (data, sortHeaderId) => {
     switch (sortHeaderId) {
@@ -22,8 +22,8 @@ export const fn_sortFrameData = (data, sortHeaderId) => {
         }
         case 'damage': {
             // If it's broken up into pieces, rank it by its sum total
-            if (data.damage.includes(",")) {
-                return data.damage.split(",").reduce((acc, cur) => (acc + parseInt(cur.trim())), 0);
+            if (data.damage.includes(',')) {
+                return data.damage.split(',').reduce((acc, cur) => (acc + parseInt(cur.trim())), 0);
             }
             if (!data.damage.length) {
                 return 0;

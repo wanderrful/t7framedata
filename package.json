@@ -8,9 +8,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng build --prod && touch dist/tekken7-framedata/.nojekyll && npx angular-cli-ghpages --dir dist/tekken7-framedata",
+    "deploy": "ng build --prod --base-href https://wanderrful.github.io/t7framedata/ && touch dist/tekken7-framedata/.nojekyll && npx angular-cli-ghpages --dir dist/tekken7-framedata",
     "heroku-postbuild": "npm i && ng build --prod"
   },
+  "homepage": "https://wanderrful.github.io/t7framedata/",
   "private": true,
   "dependencies": {
     "@angular/animations": "^8.1.2",

@@ -2,10 +2,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
-import { Kazuya } from "../../data/frames/kazuya.data";
-import { CharacterFrameDataHeaders, CharacterFrameData } from 'src/data/framedata.interface';
-import { fn_sortFrameData } from "../../data/sortFrameData";
-import { fn_applyFilter } from "../../data/applyFilter";
+import { Kazuya } from '../data/frames/kazuya.data';
+import { CharacterFrameDataHeaders, CharacterFrameData } from 'src/app/data/framedata.interface';
+import { fn_sortFrameData } from '../data/sortFrameData';
+import { fn_applyFilter } from '../data/applyFilter';
 
 @Component({
   selector: 'app-frame-data',
@@ -34,18 +34,18 @@ export class FrameDataComponent implements OnInit {
   onSpecialCounterHitStatus(isChecked: boolean) {
     const regex = /( \?specialCounterHitStatus\? )/;
     if (!!this.dataSource.filter.match(regex)) {
-      this.dataSource.filter = this.dataSource.filter.replace(regex, "");
+      this.dataSource.filter = this.dataSource.filter.replace(regex, '');
     } else {
-      this.dataSource.filter += " ?specialCounterHitStatus? ";
+      this.dataSource.filter += ' ?specialCounterHitStatus? ';
     }
   }
 
   onToggleWhiffPunishFilter(isChecked: boolean) {
     const regex = /( \?whiffPunisher\? )/;
     if (!!this.dataSource.filter.match(regex)) {
-      this.dataSource.filter = this.dataSource.filter.replace(regex, "");
+      this.dataSource.filter = this.dataSource.filter.replace(regex, '');
     } else {
-      this.dataSource.filter += " ?whiffPunisher? ";
+      this.dataSource.filter += ' ?whiffPunisher? ';
     }
   }
 }
