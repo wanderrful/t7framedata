@@ -1,0 +1,67 @@
+<header class="header">Kazuya</header>
+
+<main class="framedata">
+    <mat-form-field class="framedata__form">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+    <mat-checkbox class="framedata__form" (change)="onSpecialCounterHitStatus($event.checked)">Has special CounterHit
+        status</mat-checkbox>
+    <mat-checkbox class="framedata__form" (change)="onToggleWhiffPunishFilter($event.checked)">Whiff Punisher
+    </mat-checkbox>
+
+    <div class="framedata__table--container">
+        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 framedata__table">
+            <ng-container matColumnDef="command">
+                <th mat-header-cell *matHeaderCellDef> Command </th>
+                <td mat-cell *matCellDef="let element"> {{element.command}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="hitLevel">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Hit Level </th>
+                <td mat-cell *matCellDef="let element"> {{element.hitLevel}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="damage">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Damage </th>
+                <td mat-cell *matCellDef="let element"> {{element.damage}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="startupFrames">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Startup Frames </th>
+                <td mat-cell *matCellDef="let element"> {{element.startupFrames}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="blockFrames">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Block Frames </th>
+                <td mat-cell *matCellDef="let element"> {{element.blockFrames}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="hitFrames">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Hit Frames </th>
+                <td mat-cell *matCellDef="let element"> {{element.hitFrames}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="counterHitFrames">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Counter Hit Frames </th>
+                <td mat-cell *matCellDef="let element"> {{element.counterHitFrames}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="notes">
+                <th mat-header-cell *matHeaderCellDef> Notes </th>
+                <td mat-cell *matCellDef="let element"> {{element.notes}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+</main>
+
+<footer>
+    <div class="footer__signature">
+        Made by Love on 17 July 2019
+    </div>
+    <a href="https://www.patreon.com/jfaw">
+        <img src="../assets/patron-button.png" alt="Become a patron!" class="footer__patreon" />
+    </a>
+</footer>

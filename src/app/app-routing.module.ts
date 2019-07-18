@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
+import { FrameDataComponent } from './frame-data/frame-data.component';
 
 
 const routes: Routes = [
-  { path: '**', component: AppComponent }
+  { path: '', component: FrameDataComponent },
+  { path: '**', component: FrameDataComponent }
 ];
 
 @NgModule({
