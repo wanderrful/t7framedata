@@ -1,0 +1,38 @@
+header {
+    font-size: 4rem;
+    font-weight: bold;
+
+    text-align: center;
+}
+
+.framedata {}
+.framedata__form {
+    margin-left: 4rem;
+}
+.framedata__table {
+    min-width: 100%;
+}
+.framedata__table--container {
+    max-height: 75vh;
+    max-width: 90vw;
+    margin: 0 auto;
+    overflow: auto;
+}
+
+.footer {}
+.footer__signature {
+    padding-top: 1rem;
+    padding-right: 1rem;
+    text-align: right;
+}
+.footer__patreon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 51px;
+    width: 217px;
+    opacity: 0.5;
+}
+.footer__patreon:hover {
+    opacity: 1.0;
+}
