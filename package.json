@@ -3,13 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --open",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "deploy": "ng build --prod && touch dist/tekken7-framedata/.nojekyll && npx angular-cli-ghpages --dir dist/tekken7-framedata",
-    "heroku-postbuild": "npm i && ng build --prod && node server.js"
+    "heroku-postbuild": "npm i && ng build --prod"
   },
   "private": true,
   "dependencies": {
