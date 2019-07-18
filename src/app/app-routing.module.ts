@@ -5,7 +5,8 @@ import { FrameDataComponent } from './frame-data/frame-data.component';
 
 
 const routes: Routes = [
-  { path: '', component: FrameDataComponent },
+  { path: '', redirectTo: "/home", pathMatch: "full" },
+  { path: "/home", component: FrameDataComponent },
   { path: '**', component: FrameDataComponent }
 ];
 
