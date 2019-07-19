@@ -1,0 +1,11 @@
+.bg-clip {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+
+    background-image: linear-gradient(to right top, #3b3d42, #252525 );
+    clip-path: polygon(2% 7.5%, 5.96% 97.81%, 95.35% 5.17%);
+    z-index: -1;
+}

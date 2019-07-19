@@ -1,13 +1,17 @@
 header {
+    color: var(--off-white);
+    background: inherit;
+    background-clip: text;
+
     font-size: 4rem;
     font-weight: bold;
-
     text-align: center;
 }
 
 .framedata {}
 .framedata__form {
     margin-left: 4rem;
+    color: var(--off-white);
 }
 .framedata__table {
     min-width: 100%;
@@ -17,6 +21,32 @@ header {
     max-width: 90vw;
     margin: 0 auto;
     overflow: auto;
+    box-shadow: -0px 2px 3px 0px rgba(.07,.07,.07,.5);
+}
+
+.mat-form-field-hide-placeholder, .mat-input-element::placeholder {
+    color: var(--off-white);
+    -webkit-text-fill-color: var(--off-white);
+}
+.mat-sort-header-arrow {
+    color: var(--off-white);
+}
+
+/* Angular Materials Data Table stylings */
+.mat-header-row {
+    background-color: var(--strong-blue);
+}
+.mat-header-cell {
+    color: var(--off-white);
+    font-size: 1rem;
+    font-weight: bold;
+}
+.mat-row:nth-child(odd) {
+    background-color: var(--off-white);
+}
+td[class*=" mat-column-"], th[class*=" mat-column-"] {
+    width: 5rem;
+    flex: 1 0;
 }
 
 .footer {}
@@ -24,6 +54,7 @@ header {
     padding-top: 1rem;
     padding-right: 1rem;
     text-align: right;
+    color: var(--off-white);
 }
 .footer__patreon {
     position: absolute;
@@ -31,7 +62,7 @@ header {
     right: 0;
     height: 51px;
     width: 217px;
-    opacity: 0.5;
+    opacity: 0.7;
 }
 .footer__patreon:hover {
     opacity: 1.0;

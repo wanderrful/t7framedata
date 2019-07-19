@@ -1,6 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+:root {
+    --off-white: #fafafa;
+    --off-black: #303030;
+    --black: #202020;
+    --strong-blue: rgb(5,111,191);
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
@@ -8,6 +15,6 @@ body {
     overflow: none;
     height: 100vh;
 
-    background-color: #f3f3f3;
-    color: #333;
+    background-color: var(--black);
+    color: var(--off-black);
 }
