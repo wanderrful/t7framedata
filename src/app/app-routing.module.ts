@@ -4,9 +4,9 @@ import { FrameDataComponent } from './frame-data/frame-data.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: FrameDataComponent },
-  { path: '**', component: FrameDataComponent }
+  { path: '', redirectTo: '/kazuya', pathMatch: 'full' },
+  { path: ':character', component: FrameDataComponent },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

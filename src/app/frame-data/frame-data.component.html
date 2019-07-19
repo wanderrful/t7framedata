@@ -1,10 +1,11 @@
-<header class="header">Kazuya</header>
+<header class="header">{{title[0].toUpperCase() + title.slice(1)}}</header>
 
 <main class="framedata">
     <mat-form-field class="framedata__form">
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
     </mat-form-field>
-    <mat-checkbox class="framedata__form" (change)="onSpecialCounterHitStatus($event.checked)">Has special CounterHit
+    <mat-checkbox class="framedata__form" (change)="onSpecialCounterHitStatus($event.checked)">Has special
+        CounterHit
         status</mat-checkbox>
     <mat-checkbox class="framedata__form" (change)="onToggleWhiffPunishFilter($event.checked)">Whiff Punisher
     </mat-checkbox>
