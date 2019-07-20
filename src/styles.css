@@ -3,9 +3,13 @@
 
 :root {
     --off-white: #fafafa;
+    --off-white-faded: #fafafaaa;
     --off-black: #303030;
+    --off-black-faded: rgba(.07,.07,.07,.5);
     --black: #202020;
     --strong-blue: rgb(5,111,191);
+    --green: green;
+    --red: red;
 }
 
 body {
@@ -17,4 +21,12 @@ body {
 
     background-color: var(--black);
     color: var(--off-black);
+}
+
+/* This gets overridden unless you put it in this file, unfortunately */
+.mat-form-field-underline {
+    background-color: var(--off-white) !important;
+}
+div[class^="mat-form-field-"], div[class^="mat-select-"], .mat-form-field-label, .mat-sort-header-arrow {
+    color: var(--off-white) !important;
 }

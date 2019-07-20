@@ -10,3 +10,12 @@ export const _fn_parseFrameData = framedata => {
     }
     return result;
 }
+
+export const _fn_parseHitData = framedata => {
+    const extracted = framedata.split(/~/);
+    if (framedata.length === 0 || extracted.length === 0) {
+        return 0;
+    }
+    const parsed = parseInt(extracted[0]);
+    return !!parsed ? parsed : 0;
+}

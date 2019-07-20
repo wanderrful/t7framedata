@@ -8,6 +8,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +27,7 @@ import { FrameDataComponent } from './frame-data/frame-data.component';
     MatSortModule,
     MatInputModule,
     MatCheckboxModule,
+    MatSelectModule,
     AppRoutingModule
   ],
   providers: [],

@@ -17,7 +17,9 @@ import { fn_applyFilter } from '../data/applyFilter';
 export class FrameDataComponent implements OnInit {
   title = 'tekken7-framedata';
   displayedColumns: string[] = Object.keys(CharacterFrameDataHeaders);
+  displayedColumnNames: string[] = Object.values(CharacterFrameDataHeaders);
   dataSource = new MatTableDataSource<CharacterFrameData>();
+  filterColumn: string = "None";
   defaultFilterPredicateFn: ((data: CharacterFrameData, filter: string) => boolean);
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -45,29 +47,30 @@ export class FrameDataComponent implements OnInit {
       this.dataSource.sort = this.sort;
       this.dataSource.sortingDataAccessor = fn_sortFrameData;
       this.defaultFilterPredicateFn = this.dataSource.filterPredicate;
-      this.dataSource.filterPredicate = fn_applyFilter(this.defaultFilterPredicateFn);
+      this.dataSource.filterPredicate = this.filterPredicate(this.defaultFilterPredicateFn);
     });
   }
 
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  forceFilterUpdate() {
+    this.dataSource.filter = " " + this.dataSource.filter;
+    this.dataSource.filter = this.dataSource.filter.slice(1);
   }
 
-  onSpecialCounterHitStatus(isChecked: boolean) {
-    const regex = /( \?specialCounterHitStatus\? )/;
-    if (!!this.dataSource.filter.match(regex)) {
-      this.dataSource.filter = this.dataSource.filter.replace(regex, '');
-    } else {
-      this.dataSource.filter += ' ?specialCounterHitStatus? ';
-    }
+  filterPredicate(fn: Function) {
+    // We pass in "this" because it's the only way I can think of to dynamically reference the chosen filterColumn
+    return fn_applyFilter(fn, this);
   }
 
-  onToggleWhiffPunishFilter(isChecked: boolean) {
-    const regex = /( \?whiffPunisher\? )/;
-    if (!!this.dataSource.filter.match(regex)) {
-      this.dataSource.filter = this.dataSource.filter.replace(regex, '');
+  applyNormalFilter(filterValue: string) {
+    this.dataSource.filter = filterValue;
+  }
+
+  onToggleSpecialFilter(isChecked: boolean, filter: string) {
+    const filterToken = ` ?${filter}? `;
+    if (this.dataSource.filter.indexOf(filterToken) !== -1 || !isChecked) {
+      this.dataSource.filter = this.dataSource.filter.replace(filterToken, '');
     } else {
-      this.dataSource.filter += ' ?whiffPunisher? ';
+      this.dataSource.filter += filterToken;
     }
   }
 }

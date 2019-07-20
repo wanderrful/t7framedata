@@ -1,5 +1,5 @@
 export enum CharacterFrameDataHeaders {
-    command = "Commandasdf",
+    command = "Command",
     hitLevel = "Hit Level",
     damage = "Damage",
     startupFrames = "Startup Frames",

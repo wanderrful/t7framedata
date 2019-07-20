@@ -8,10 +8,18 @@ header {
     text-align: center;
 }
 
-.framedata {}
+/* The main focus of the page: the actual frame data table itself */
 .framedata__form {
-    margin-left: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
     color: var(--off-white);
+}
+.framedata__form__filters .mat-form-field {
+    margin-left: 1rem;
+}
+.framedata__form__boxes--filter {
+    margin-left: 1rem;
 }
 .framedata__table {
     min-width: 100%;
@@ -21,15 +29,11 @@ header {
     max-width: 90vw;
     margin: 0 auto;
     overflow: auto;
-    box-shadow: -0px 2px 3px 0px rgba(.07,.07,.07,.5);
+    box-shadow: -0px 2px 3px 0px var(--off-black-faded);
 }
-
 .mat-form-field-hide-placeholder, .mat-input-element::placeholder {
     color: var(--off-white);
     -webkit-text-fill-color: var(--off-white);
-}
-.mat-sort-header-arrow {
-    color: var(--off-white);
 }
 
 /* Angular Materials Data Table stylings */
@@ -44,12 +48,12 @@ header {
 .mat-row:nth-child(odd) {
     background-color: var(--off-white);
 }
+/* Forcing uniform column widths */
 td[class*=" mat-column-"], th[class*=" mat-column-"] {
     width: 5rem;
     flex: 1 0;
 }
 
-.footer {}
 .footer__signature {
     padding-top: 1rem;
     padding-right: 1rem;
@@ -66,4 +70,12 @@ td[class*=" mat-column-"], th[class*=" mat-column-"] {
 }
 .footer__patreon:hover {
     opacity: 1.0;
+}
+
+/* Cosmetics */
+.green {
+    color: var(--green);
+}
+.red {
+    color: var(--red);
 }

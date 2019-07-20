@@ -1,14 +1,37 @@
 <header class="header">{{title[0].toUpperCase() + title.slice(1)}}</header>
 
 <main class="framedata">
-    <mat-form-field class="framedata__form">
-        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-    </mat-form-field>
-    <mat-checkbox class="framedata__form" (change)="onSpecialCounterHitStatus($event.checked)">Has special
-        CounterHit
-        status</mat-checkbox>
-    <mat-checkbox class="framedata__form" (change)="onToggleWhiffPunishFilter($event.checked)">Whiff Punisher
-    </mat-checkbox>
+    <div class="framedata__form">
+        <div class="framedata__form__filters">
+            <mat-form-field>
+                <input matInput (keyup)="applyNormalFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Column</mat-label>
+                <mat-select [(value)]="filterColumn" (selectionChange)="forceFilterUpdate()">
+                    <mat-option>All</mat-option>
+                    <mat-option *ngFor="let column of displayedColumnNames" [value]="column">{{column}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="framedata__form__boxes">
+            <mat-checkbox (change)="onToggleSpecialFilter($event.checked, 'specialCounterHitStatus')"
+                class="framedata__form__boxes--filter">Special on Counter Hit</mat-checkbox>
+            <mat-checkbox (change)="onToggleSpecialFilter($event.checked, '14fPunisher')"
+                class="framedata__form__boxes--filter">&lt;14f Punishers
+            </mat-checkbox>
+            <mat-checkbox (change)="onToggleSpecialFilter($event.checked, 'unblockable')"
+                class="framedata__form__boxes--filter">Unblockables
+            </mat-checkbox>
+            <mat-checkbox (change)="onToggleSpecialFilter($event.checked, 'launchers')"
+                class="framedata__form__boxes--filter">Launches on hit
+            </mat-checkbox>
+            <mat-checkbox (change)="onToggleSpecialFilter($event.checked, 'plusOnBlock')"
+                class="framedata__form__boxes--filter">+ on block
+            </mat-checkbox>
+        </div>
+    </div>
 
     <div class="framedata__table--container">
         <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 framedata__table">

@@ -1,4 +1,4 @@
-import { _fn_parseFrameData } from './helpers';
+import { _fn_parseFrameData, _fn_parseHitData } from './helpers';
 
 export const fn_sortFrameData = (data, sortHeaderId) => {
     switch (sortHeaderId) {
@@ -33,6 +33,15 @@ export const fn_sortFrameData = (data, sortHeaderId) => {
         case 'startupFrames': {
             // Parse through the nonsense and just rank it by the first number given
             return _fn_parseFrameData(data.startupFrames);
+        }
+        case 'blockFrames': {
+            return _fn_parseHitData(data.blockFrames);
+        }
+        case 'hitFrames': {
+            return _fn_parseHitData(data.hitFrames);
+        }
+        case 'counterHitFrames': {
+            return _fn_parseHitData(data.counterHitFrames);
         }
         default: {
             return 0;
