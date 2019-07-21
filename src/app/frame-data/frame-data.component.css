@@ -1,3 +1,7 @@
+.frame-data-container {
+    height: 100%;
+}
+
 header {
     color: var(--off-white);
     background: inherit;
@@ -6,6 +10,27 @@ header {
     font-size: 4rem;
     font-weight: bold;
     text-align: center;
+}
+
+.character-select {
+    width: 20vw;
+    display:flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+.btn-character, .btn-character > * {
+    width: 100%;
+}
+.btn-character a {
+    font-size: 1.25rem;
+    padding: 1rem 0;
+}
+.btn-menu {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
 }
 
 /* The main focus of the page: the actual frame data table itself */

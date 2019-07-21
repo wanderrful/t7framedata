@@ -9,6 +9,9 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +31,9 @@ import { FrameDataComponent } from './frame-data/frame-data.component';
     MatInputModule,
     MatCheckboxModule,
     MatSelectModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatIconModule,
     AppRoutingModule
   ],
   providers: [],

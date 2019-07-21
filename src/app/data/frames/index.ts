@@ -6,6 +6,16 @@ import { Asuka } from "./asuka.data";
 import { Kazuya } from "./kazuya.data";
 import { Leo } from "./leo.data";
 
+export enum CharacterName {
+    akuma = "Akuma",
+    alisa = "Alisa",
+    anna = "Anna",
+    armorking = "Armor King",
+    asuka = "Asuka",
+    kazuya = "Kazuya",
+    leo = "Leo",
+};
+
 export {
     Akuma,
     Alisa,

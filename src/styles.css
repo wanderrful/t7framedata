@@ -23,10 +23,16 @@ body {
     color: var(--off-black);
 }
 
-/* This gets overridden unless you put it in this file, unfortunately */
+/* This stuff gets overridden unless you put it in this file, unfortunately */
 .mat-form-field-underline {
     background-color: var(--off-white) !important;
 }
 div[class^="mat-form-field-"], div[class^="mat-select-"], .mat-form-field-label, .mat-sort-header-arrow {
     color: var(--off-white) !important;
+}
+.mat-drawer-container {
+    background-color: transparent !important;
+}
+.mat-sidenav {
+    background-color: var(--off-white) !important;
 }

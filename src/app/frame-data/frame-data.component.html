@@ -1,91 +1,109 @@
-<header class="header">{{title[0].toUpperCase() + title.slice(1)}}</header>
-
-<main class="framedata">
-    <div class="framedata__form">
-        <div class="framedata__form__filters">
-            <mat-form-field>
-                <input matInput (keyup)="applyNormalFilter($event.target.value)" placeholder="Filter">
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Column</mat-label>
-                <mat-select [(value)]="filterColumn" (selectionChange)="forceFilterUpdate()">
-                    <mat-option>All</mat-option>
-                    <mat-option *ngFor="let column of displayedColumnNames" [value]="column">{{column}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
+<mat-sidenav-container class="frame-data-container">
+    <mat-sidenav #sidenav>
+        <div class="character-select">
+            <h2>Character Select</h2>
+            <div *ngFor="let char of availableCharacterKeys" class="btn-character">
+                <a mat-button color="accent" [routerLink]="['/' + char]">{{availableCharacters[char]}}</a>
+            </div>
         </div>
-        <div class="framedata__form__boxes">
-            <mat-checkbox (change)="onToggleSpecialFilter($event.checked, 'specialCounterHitStatus')"
-                class="framedata__form__boxes--filter">Special on Counter Hit</mat-checkbox>
-            <mat-checkbox (change)="onToggleSpecialFilter($event.checked, '14fPunisher')"
-                class="framedata__form__boxes--filter">&lt;14f Punishers
-            </mat-checkbox>
-            <mat-checkbox (change)="onToggleSpecialFilter($event.checked, 'unblockable')"
-                class="framedata__form__boxes--filter">Unblockables
-            </mat-checkbox>
-            <mat-checkbox (change)="onToggleSpecialFilter($event.checked, 'launchers')"
-                class="framedata__form__boxes--filter">Launches on hit
-            </mat-checkbox>
-            <mat-checkbox (change)="onToggleSpecialFilter($event.checked, 'plusOnBlock')"
-                class="framedata__form__boxes--filter">+ on block
-            </mat-checkbox>
-        </div>
-    </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <button mat-fab color="accent" (click)="sidenav.toggle()" class="btn-menu">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <header class="header">{{availableCharacters[title]}}</header>
 
-    <div class="framedata__table--container">
-        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 framedata__table">
-            <ng-container matColumnDef="command">
-                <th mat-header-cell *matHeaderCellDef> Command </th>
-                <td mat-cell *matCellDef="let element"> {{element.command}} </td>
-            </ng-container>
+        <main class="framedata">
+            <div class="framedata__form">
+                <div class="framedata__form__filters">
+                    <mat-form-field>
+                        <input matInput (keyup)="applyNormalFilter($event.target.value)" placeholder="Filter">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Column</mat-label>
+                        <mat-select [(value)]="filterColumn" (selectionChange)="forceFilterUpdate()">
+                            <mat-option>All</mat-option>
+                            <mat-option *ngFor="let column of displayedColumnNames" [value]="column">{{column}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="framedata__form__boxes">
+                    <mat-checkbox (change)="onToggleSpecialFilter($event.checked, 'specialCounterHitStatus')"
+                        class="framedata__form__boxes--filter">Special on Counter Hit</mat-checkbox>
+                    <mat-checkbox (change)="onToggleSpecialFilter($event.checked, '14fPunisher')"
+                        class="framedata__form__boxes--filter">&lt;14f Punishers
+                    </mat-checkbox>
+                    <mat-checkbox (change)="onToggleSpecialFilter($event.checked, 'unblockable')"
+                        class="framedata__form__boxes--filter">Unblockables
+                    </mat-checkbox>
+                    <mat-checkbox (change)="onToggleSpecialFilter($event.checked, 'launchers')"
+                        class="framedata__form__boxes--filter">Launches on hit
+                    </mat-checkbox>
+                    <mat-checkbox (change)="onToggleSpecialFilter($event.checked, 'plusOnBlock')"
+                        class="framedata__form__boxes--filter">+ on block
+                    </mat-checkbox>
+                    <mat-checkbox (change)="onToggleSpecialFilter($event.checked, 'safeOnBlock')"
+                        class="framedata__form__boxes--filter">Safe on block
+                    </mat-checkbox>
+                </div>
+            </div>
 
-            <ng-container matColumnDef="hitLevel">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Hit Level </th>
-                <td mat-cell *matCellDef="let element"> {{element.hitLevel}} </td>
-            </ng-container>
+            <div class="framedata__table--container">
+                <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 framedata__table">
+                    <ng-container matColumnDef="command">
+                        <th mat-header-cell *matHeaderCellDef> Command </th>
+                        <td mat-cell *matCellDef="let element"> {{element.command}} </td>
+                    </ng-container>
 
-            <ng-container matColumnDef="damage">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Damage </th>
-                <td mat-cell *matCellDef="let element"> {{element.damage}} </td>
-            </ng-container>
+                    <ng-container matColumnDef="hitLevel">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Hit Level </th>
+                        <td mat-cell *matCellDef="let element"> {{element.hitLevel}} </td>
+                    </ng-container>
 
-            <ng-container matColumnDef="startupFrames">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Startup Frames </th>
-                <td mat-cell *matCellDef="let element"> {{element.startupFrames}} </td>
-            </ng-container>
+                    <ng-container matColumnDef="damage">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Damage </th>
+                        <td mat-cell *matCellDef="let element"> {{element.damage}} </td>
+                    </ng-container>
 
-            <ng-container matColumnDef="blockFrames">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Block Frames </th>
-                <td mat-cell *matCellDef="let element"> {{element.blockFrames}} </td>
-            </ng-container>
+                    <ng-container matColumnDef="startupFrames">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Startup Frames </th>
+                        <td mat-cell *matCellDef="let element"> {{element.startupFrames}} </td>
+                    </ng-container>
 
-            <ng-container matColumnDef="hitFrames">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Hit Frames </th>
-                <td mat-cell *matCellDef="let element"> {{element.hitFrames}} </td>
-            </ng-container>
+                    <ng-container matColumnDef="blockFrames">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Block Frames </th>
+                        <td mat-cell *matCellDef="let element"> {{element.blockFrames}} </td>
+                    </ng-container>
 
-            <ng-container matColumnDef="counterHitFrames">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Counter Hit Frames </th>
-                <td mat-cell *matCellDef="let element"> {{element.counterHitFrames}} </td>
-            </ng-container>
+                    <ng-container matColumnDef="hitFrames">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Hit Frames </th>
+                        <td mat-cell *matCellDef="let element"> {{element.hitFrames}} </td>
+                    </ng-container>
 
-            <ng-container matColumnDef="notes">
-                <th mat-header-cell *matHeaderCellDef> Notes </th>
-                <td mat-cell *matCellDef="let element"> {{element.notes}} </td>
-            </ng-container>
+                    <ng-container matColumnDef="counterHitFrames">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Counter Hit Frames </th>
+                        <td mat-cell *matCellDef="let element"> {{element.counterHitFrames}} </td>
+                    </ng-container>
 
-            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-    </div>
-</main>
+                    <ng-container matColumnDef="notes">
+                        <th mat-header-cell *matHeaderCellDef> Notes </th>
+                        <td mat-cell *matCellDef="let element"> {{element.notes}} </td>
+                    </ng-container>
 
-<footer>
-    <div class="footer__signature">
-        Made by Love on 17 July 2019
-    </div>
-    <a href="https://www.patreon.com/jfaw">
-        <img src="assets/patron-button.png" alt="Become a patron!" class="footer__patreon" />
-    </a>
-</footer>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer__signature">
+                Made by Love on 17 July 2019
+            </div>
+            <a href="https://www.patreon.com/jfaw">
+                <img src="assets/patron-button.png" alt="Become a patron!" class="footer__patreon" />
+            </a>
+        </footer>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,8 +1,8 @@
 import { CharacterFrameData, CharacterFrameDataHeaders } from './framedata.interface';
 import { FrameDataComponent } from '../frame-data/frame-data.component';
+import { _fn_parseHitData } from "./helpers";
 
 export const fn_applyFilter = (defaultFn: Function, componentRef: FrameDataComponent): ((data: CharacterFrameData, filter: string) => boolean) => (data: CharacterFrameData, filter: string) => {
-    console.log(filter);
     // Filter out the special, passive params
     let specialParams = [];
     let normalParams = '';
@@ -56,13 +56,17 @@ export const fn_applyFilter = (defaultFn: Function, componentRef: FrameDataCompo
                 break;
             }
             case "?launchers?": {
-                const launchesOnHit = data.hitFrames.indexOf("Launch") !== -1;
+                const launchesOnHit = data.hitFrames.toLowerCase().indexOf("launch") !== -1;
                 basicSearchResult = basicSearchResult && launchesOnHit;
                 break;
             }
             case "?plusOnBlock?": {
                 const plusOnBlock = data.blockFrames.length > 0 && data.blockFrames[0] === "+";
                 basicSearchResult = basicSearchResult && plusOnBlock;
+            }
+            case "?safeOnBlock?": {
+                const blockFrames = _fn_parseHitData(data.blockFrames);
+                basicSearchResult = basicSearchResult && blockFrames > -10;
             }
             default: {
                 break;

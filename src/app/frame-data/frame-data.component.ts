@@ -6,6 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { CharacterService } from '../characterservice.service';
 import { CharacterFrameDataHeaders, CharacterFrameData } from 'src/app/data/framedata.interface';
+import { CharacterName } from '../data/frames';
 import { fn_sortFrameData } from '../data/sortFrameData';
 import { fn_applyFilter } from '../data/applyFilter';
 
@@ -19,8 +20,9 @@ export class FrameDataComponent implements OnInit {
   displayedColumns: string[] = Object.keys(CharacterFrameDataHeaders);
   displayedColumnNames: string[] = Object.values(CharacterFrameDataHeaders);
   dataSource = new MatTableDataSource<CharacterFrameData>();
-  filterColumn: string = "None";
+  filterColumn: string = "All";
   defaultFilterPredicateFn: ((data: CharacterFrameData, filter: string) => boolean);
+  availableCharacters = CharacterName;
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
@@ -34,10 +36,16 @@ export class FrameDataComponent implements OnInit {
     this.refreshDataSource();
   }
 
+  /* Used by the side-nav menu to correlate the actual route with the character name */
+  get availableCharacterKeys() {
+    return Object.keys(this.availableCharacters);
+  }
+
+  /* Used to get the correct character name */
   refreshDataSource() {
     const characterData = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
-        const character = params.get('character');
+        const character = params.get('character').toLowerCase();
         this.title = character;
         return this.service.getFrameData(character);
       })
@@ -51,20 +59,24 @@ export class FrameDataComponent implements OnInit {
     });
   }
 
+  /* A trick to trigger the native event emitter for the filter */
   forceFilterUpdate() {
     this.dataSource.filter = " " + this.dataSource.filter;
     this.dataSource.filter = this.dataSource.filter.slice(1);
   }
 
+  /* HOC that extends the functionality of the default filter predicate function */
   filterPredicate(fn: Function) {
     // We pass in "this" because it's the only way I can think of to dynamically reference the chosen filterColumn
     return fn_applyFilter(fn, this);
   }
 
+  /* Used for manual, user-entered filter keywords */
   applyNormalFilter(filterValue: string) {
     this.dataSource.filter = filterValue;
   }
 
+  /* Used to apply the special check box filter keywords */
   onToggleSpecialFilter(isChecked: boolean, filter: string) {
     const filterToken = ` ?${filter}? `;
     if (this.dataSource.filter.indexOf(filterToken) !== -1 || !isChecked) {
