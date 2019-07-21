@@ -3,7 +3,8 @@
         <div class="character-select">
             <h2>Character Select</h2>
             <div *ngFor="let char of availableCharacterKeys" class="btn-character">
-                <a mat-button color="accent" [routerLink]="['/' + char]">{{availableCharacters[char]}}</a>
+                <a mat-button color="accent" [routerLink]="['/' + char]"
+                    (click)="openSnackBar('Now viewing ' + availableCharacters[char])">{{availableCharacters[char]}}</a>
             </div>
         </div>
     </mat-sidenav>

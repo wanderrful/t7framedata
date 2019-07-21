@@ -8,6 +8,7 @@
     --off-black-faded: rgba(.07,.07,.07,.5);
     --black: #202020;
     --strong-blue: rgb(5,111,191);
+    --strong-pink: #ff4081;
     --green: green;
     --red: red;
 }
@@ -35,4 +36,14 @@ div[class^="mat-form-field-"], div[class^="mat-select-"], .mat-form-field-label,
 }
 .mat-sidenav {
     background-color: var(--off-white) !important;
+}
+.mat-simple-snackbar-container {
+    background-color: var(--off-white);
+}
+.mat-simple-snackbar span {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--strong-pink);
+    margin: auto;
+    text-align: center;
 }

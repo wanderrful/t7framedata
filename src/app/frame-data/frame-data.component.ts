@@ -4,6 +4,8 @@ import { switchMap } from 'rxjs/operators';
 
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 import { CharacterService } from '../characterservice.service';
 import { CharacterFrameDataHeaders, CharacterFrameData } from 'src/app/data/framedata.interface';
 import { CharacterName } from '../data/frames';
@@ -29,6 +31,7 @@ export class FrameDataComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
+    private _snackBar: MatSnackBar,
     private service: CharacterService
   ) { }
 
@@ -84,5 +87,15 @@ export class FrameDataComponent implements OnInit {
     } else {
       this.dataSource.filter += filterToken;
     }
+  }
+
+  /* Used as a way to tell the user that they've switch to another character */
+  openSnackBar(message: string) {
+    this._snackBar.open(message, null, {
+      duration: 1250,
+      verticalPosition: "top",
+      horizontalPosition: "center",
+      panelClass: "myClassName"
+    });
   }
 }
