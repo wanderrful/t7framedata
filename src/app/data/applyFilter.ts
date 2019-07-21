@@ -63,18 +63,22 @@ export const fn_applyFilter = (defaultFn: Function, componentRef: FrameDataCompo
             case "?plusOnBlock?": {
                 const plusOnBlock = data.blockFrames.length > 0 && data.blockFrames[0] === "+";
                 basicSearchResult = basicSearchResult && plusOnBlock;
+                break;
             }
             case "?safeOnBlock?": {
                 const blockFrames = _fn_parseHitData(data.blockFrames);
                 basicSearchResult = basicSearchResult && blockFrames > -10;
+                break;
             }
             case "?homing?": {
                 const isHoming = data.notes.toLowerCase().indexOf("homing") !== -1;
                 basicSearchResult = basicSearchResult && isHoming;
+                break;
             }
             case "?throws?": {
                 const isThrow = data.hitFrames.toLowerCase().indexOf("throw") !== -1;
                 basicSearchResult = basicSearchResult && isThrow;
+                break;
             }
             default: {
                 break;
