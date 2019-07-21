@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { CharacterFrameData } from './data/framedata.interface';
+import { CharacterName } from './data/frames';
 
 import * as char from './data/frames';
 
@@ -11,28 +12,31 @@ export class CharacterService {
 
   constructor() { }
 
-  getFrameData(character: string): Observable<CharacterFrameData[]> {
+  getFrameData(character: CharacterName): Observable<CharacterFrameData[]> {
     switch (character) {
-      case 'akuma': {
+      case CharacterName.akuma: {
         return of(char.Akuma);
       }
-      case 'alisa': {
+      case CharacterName.alisa: {
         return of(char.Alisa);
       }
-      case 'anna': {
+      case CharacterName.anna: {
         return of(char.Anna);
       }
-      case 'armorking': {
+      case CharacterName.armorking: {
         return of(char.ArmorKing);
       }
-      case 'asuka': {
+      case CharacterName.asuka: {
         return of(char.Asuka);
       }
-      case 'leo': {
+      case CharacterName.hwoarang: {
+        return of(char.Hwoarang);
+      }
+      case CharacterName.leo: {
         return of(char.Leo);
       }
       // If all else fails, return Kazuya's data
-      case 'kazuya':
+      case CharacterName.kazuya:
       default: {
         return of(char.Kazuya);
       }

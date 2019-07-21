@@ -23,7 +23,7 @@ export const fn_applyFilter = (defaultFn: Function, componentRef: FrameDataCompo
     if (filterColumn !== "All" && filter.trim().length > 0) {
         for (let column in data) {
             if (CharacterFrameDataHeaders[column] === filterColumn) {
-                basicSearchResult = data[column].trim().toLowerCase().indexOf(normalParams) !== -1;
+                basicSearchResult = data[column].trim().toLowerCase().indexOf(normalParams.toLowerCase()) !== -1;
             }
         }
     }

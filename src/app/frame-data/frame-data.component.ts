@@ -50,7 +50,7 @@ export class FrameDataComponent implements OnInit {
       switchMap((params: ParamMap) => {
         const character = params.get('character').toLowerCase();
         this.title = character;
-        return this.service.getFrameData(character);
+        return this.service.getFrameData(CharacterName[character]);
       })
     );
     characterData.subscribe(value => {
