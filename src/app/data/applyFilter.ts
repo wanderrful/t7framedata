@@ -68,6 +68,14 @@ export const fn_applyFilter = (defaultFn: Function, componentRef: FrameDataCompo
                 const blockFrames = _fn_parseHitData(data.blockFrames);
                 basicSearchResult = basicSearchResult && blockFrames > -10;
             }
+            case "?homing?": {
+                const isHoming = data.notes.toLowerCase().indexOf("homing") !== -1;
+                basicSearchResult = basicSearchResult && isHoming;
+            }
+            case "?throws?": {
+                const isThrow = data.hitFrames.toLowerCase().indexOf("throw") !== -1;
+                basicSearchResult = basicSearchResult && isThrow;
+            }
             default: {
                 break;
             }

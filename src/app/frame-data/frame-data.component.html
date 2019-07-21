@@ -6,6 +6,19 @@
                 <a mat-button color="accent" [routerLink]="['/' + char]"
                     (click)="openSnackBar('Now viewing ' + availableCharacters[char])">{{availableCharacters[char]}}</a>
             </div>
+            <div class="footer__signature">
+                <div>
+                    <i>
+                        Frame data from
+                        <a mat-button href="http://rbnorway.org/t7-frame-data/">
+                            RBNorway
+                        </a>
+                    </i>
+                </div>
+                <div>
+                    <i>Built with Love on 17 July 2019</i>
+                </div>
+            </div>
         </div>
     </mat-sidenav>
     <mat-sidenav-content>
@@ -46,6 +59,12 @@
                     </mat-checkbox>
                     <mat-checkbox (change)="onToggleSpecialFilter($event.checked, 'safeOnBlock')"
                         class="framedata__form__boxes--filter">Safe on block
+                    </mat-checkbox>
+                    <mat-checkbox (change)="onToggleSpecialFilter($event.checked, 'homing')"
+                        class="framedata__form__boxes--filter">Homing attacks
+                    </mat-checkbox>
+                    <mat-checkbox (change)="onToggleSpecialFilter($event.checked, 'throws')"
+                        class="framedata__form__boxes--filter">Throws
                     </mat-checkbox>
                 </div>
             </div>
@@ -97,14 +116,8 @@
                 </table>
             </div>
         </main>
-
-        <footer>
-            <div class="footer__signature">
-                Made by Love on 17 July 2019
-            </div>
-            <a href="https://www.patreon.com/jfaw">
-                <img src="assets/patron-button.png" alt="Become a patron!" class="footer__patreon" />
-            </a>
-        </footer>
+        <a href="https://www.patreon.com/jfaw">
+            <img src="assets/patron-button.png" alt="Become a patron!" class="footer__patreon" />
+        </a>
     </mat-sidenav-content>
 </mat-sidenav-container>

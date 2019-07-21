@@ -35,6 +35,10 @@ export class CharacterService {
       case CharacterName.leo: {
         return of(char.Leo);
       }
+      case CharacterName.yoshimitsu: {
+        return of(char.Yoshimitsu);
+      }
+
       // If all else fails, return Kazuya's data
       case CharacterName.kazuya:
       default: {

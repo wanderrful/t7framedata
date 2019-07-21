@@ -6,6 +6,7 @@ import { Asuka } from "./asuka.data";
 import { Hwoarang } from "./hwoarang.data";
 import { Kazuya } from "./kazuya.data";
 import { Leo } from "./leo.data";
+import { Yoshimitsu } from "./yoshimitsu.data";
 
 export enum CharacterName {
     akuma = "Akuma",
@@ -16,6 +17,7 @@ export enum CharacterName {
     hwoarang = "Hwoarang",
     kazuya = "Kazuya",
     leo = "Leo",
+    yoshimitsu = "Yoshimitsu"
 };
 
 export {
@@ -26,5 +28,6 @@ export {
     Asuka,
     Hwoarang,
     Kazuya,
-    Leo
+    Leo,
+    Yoshimitsu
 };

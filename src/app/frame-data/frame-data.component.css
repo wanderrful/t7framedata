@@ -7,15 +7,17 @@ header {
     background: inherit;
     background-clip: text;
 
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: bold;
     text-align: center;
+
+    user-select: none;
 }
 
 .character-select {
     min-width: 20vw;
     max-width: min-content;
-    display:flex;
+    display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: flex-start;
@@ -81,10 +83,13 @@ td[class*=" mat-column-"], th[class*=" mat-column-"] {
 }
 
 .footer__signature {
+    position: absolute;
+    bottom: 1rem;
     padding-top: 1rem;
     padding-right: 1rem;
     text-align: right;
-    color: var(--off-white);
+    font-size: 0.8rem;
+    color: var(--off-black);
 }
 .footer__patreon {
     position: absolute;
