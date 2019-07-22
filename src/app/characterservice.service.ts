@@ -32,8 +32,32 @@ export class CharacterService {
       case CharacterName.hwoarang: {
         return of(char.Hwoarang);
       }
+      case CharacterName.kuma: {
+        return of(char.Kuma);
+      }
       case CharacterName.leo: {
         return of(char.Leo);
+      }
+      case CharacterName.miguel: {
+        return of(char.Miguel);
+      }
+      case CharacterName.nina: {
+        return of(char.Nina);
+      }
+      case CharacterName.panda: {
+        return of(char.Panda);
+      }
+      case CharacterName.paul: {
+        return of(char.Paul);
+      }
+      case CharacterName.shaheen: {
+        return of(char.Shaheen);
+      }
+      case CharacterName.steve: {
+        return of(char.Steve);
+      }
+      case CharacterName.xiaoyu: {
+        return of(char.Xiaoyu);
       }
       case CharacterName.yoshimitsu: {
         return of(char.Yoshimitsu);

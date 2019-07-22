@@ -13,10 +13,8 @@ header {
 
     user-select: none;
 }
-
 .character-select {
-    min-width: 20vw;
-    max-width: min-content;
+    width: 20vw;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -83,11 +81,11 @@ td[class*=" mat-column-"], th[class*=" mat-column-"] {
 }
 
 .footer__signature {
-    position: absolute;
-    bottom: 1rem;
-    padding-top: 1rem;
-    padding-right: 1rem;
-    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     font-size: 0.8rem;
     color: var(--off-black);
 }

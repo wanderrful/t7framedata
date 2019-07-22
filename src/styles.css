@@ -24,7 +24,7 @@ body {
     color: var(--off-black);
 }
 
-/* This stuff gets overridden unless you put it in this file, unfortunately */
+/* Adjustments to the default Angular Materials behavior, as they get overriden in any other CSS file */
 .mat-form-field-underline {
     background-color: var(--off-white) !important;
 }
@@ -33,6 +33,9 @@ div[class^="mat-form-field-"], div[class^="mat-select-"], .mat-form-field-label,
 }
 .mat-drawer-container {
     background-color: transparent !important;
+}
+.mat-drawer-inner-container {
+    overflow-x: hidden !important;
 }
 .mat-sidenav {
     background-color: var(--off-white) !important;
@@ -46,4 +49,7 @@ div[class^="mat-form-field-"], div[class^="mat-select-"], .mat-form-field-label,
     color: var(--strong-pink);
     margin: auto;
     text-align: center;
+}
+.mat-checkbox-frame {
+    border-color: var(--off-white) !important;
 }
