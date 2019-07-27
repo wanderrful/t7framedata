@@ -76,7 +76,7 @@ export const fn_applyFilter = (defaultFn: Function, componentRef: FrameDataCompo
                 break;
             }
             case "?throws?": {
-                const isThrow = data.hitFrames.toLowerCase().indexOf("throw") !== -1;
+                const isThrow = data.hitFrames.toLowerCase().indexOf("throw") !== -1 || data.counterHitFrames.toLowerCase().indexOf("throw") !== -1;
                 basicSearchResult = basicSearchResult && isThrow;
                 break;
             }
