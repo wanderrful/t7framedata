@@ -29,17 +29,44 @@ export class CharacterService {
       case CharacterName.asuka: {
         return of(char.Asuka);
       }
+      case CharacterName.bob: {
+        return of(char.Bob);
+      }
+      case CharacterName.bryan: {
+        return of(char.Bryan);
+      }
       case CharacterName.claudio: {
         return of(char.Claudio);
       }
+      case CharacterName.deviljin: {
+        return of(char.DevilJin);
+      }
+      case CharacterName.dragunov: {
+        return of(char.Dragunov);
+      }
       case CharacterName.eddy: {
         return of(char.Eddy);
+      }
+      case CharacterName.eliza: {
+        return of(char.Eliza);
+      }
+      case CharacterName.feng: {
+        return of(char.Feng);
+      }
+      case CharacterName.geese: {
+        return of(char.Geese);
+      }
+      case CharacterName.gigas: {
+        return of(char.Gigas);
       }
       case CharacterName.heihachi: {
         return of(char.Heihachi);
       }
       case CharacterName.hwoarang: {
         return of(char.Hwoarang);
+      }
+      case CharacterName.jack7: {
+        return of(char.Jack7);
       }
       case CharacterName.jin: {
         return of(char.Jin);
@@ -50,8 +77,26 @@ export class CharacterService {
       case CharacterName.julia: {
         return of(char.Julia);
       }
+      case CharacterName.katarina: {
+        return of(char.Katarina);
+      }
+      case CharacterName.kazumi: {
+        return of(char.Kazumi);
+      }
+      case CharacterName.king: {
+        return of(char.King);
+      }
       case CharacterName.kuma: {
         return of(char.Kuma);
+      }
+      case CharacterName.law: {
+        return of(char.Law);
+      }
+      case CharacterName.lee: {
+        return of(char.Lee);
+      }
+      case CharacterName.lei: {
+        return of(char.Lei);
       }
       case CharacterName.leo: {
         return of(char.Leo);
@@ -71,8 +116,14 @@ export class CharacterService {
       case CharacterName.miguel: {
         return of(char.Miguel);
       }
+      case CharacterName.negan: {
+        return of(char.Negan);
+      }
       case CharacterName.nina: {
         return of(char.Nina);
+      }
+      case CharacterName.noctis: {
+        return of(char.Noctis);
       }
       case CharacterName.panda: {
         return of(char.Panda);
@@ -91,6 +142,9 @@ export class CharacterService {
       }
       case CharacterName.yoshimitsu: {
         return of(char.Yoshimitsu);
+      }
+      case CharacterName.zafina: {
+        return of(char.Zafina);
       }
 
       // If all else fails, return Kazuya's data

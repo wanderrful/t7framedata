@@ -31,7 +31,14 @@ const fn_parseTSV = data => {
 const { readFileSync, writeFileSync } = require("fs");
 
 const main = (() => {
-    const data = readFileSync(`./input/${CHARACTER}.tsv`, "utf8");
-    const frameData = fn_parseTSV(data);
-    writeFileSync(`./output/${CHARACTER}.json`, JSON.stringify(frameData, null, 2));
+    const data = readFileSync(`utils/parseTSV/input/input.tsv`, "utf8");
+
+    let uniqueCommands = [];
+    const frameData = fn_parseTSV(data).map(x => {
+        const { command } = x;
+        if (uniqueCommands.includes(command.toLowerCase())) { return null; }
+        else { uniqueCommands.push(command.toLowerCase()); return x; }
+    }).filter(x => x !== null);
+
+    writeFileSync(`src/app/data/frames/${CHARACTER}.data.ts`, `import { CharacterFrameData } from "../framedata.interface";\n\nexport const ${CHARACTER[0].toUpperCase() + CHARACTER.slice(1)}: CharacterFrameData[] = ${JSON.stringify(frameData, null, 2)};`);
 })();

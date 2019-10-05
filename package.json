@@ -10,7 +10,7 @@
     "e2e": "ng e2e",
     "deploy": "ng build --prod --base-href https://wanderrful.github.io/t7framedata/ && touch dist/tekken7-framedata/.nojekyll && npx angular-cli-ghpages --dir dist/tekken7-framedata",
     "heroku-postbuild": "npm i && ng build --prod",
-    "parseTSV": "cd utils/parseTSV && node index.js"
+    "parseTSV": "node utils/parseTSV/index.js"
   },
   "homepage": "https://wanderrful.github.io/t7framedata/",
   "private": true,

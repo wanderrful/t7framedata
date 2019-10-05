@@ -2,26 +2,6 @@ import { CharacterFrameData } from "../framedata.interface";
 
 export const ArmorKing: CharacterFrameData[] = [
     {
-        "command": "In rage b+3+4",
-        "hitLevel": "m (throw)",
-        "damage": "55",
-        "startupFrames": "20",
-        "blockFrames": "-22",
-        "hitFrames": "throw",
-        "counterHitFrames": "throw",
-        "notes": "Rage art"
-    },
-    {
-        "command": "In rage f, N, d, d/f+1+2",
-        "hitLevel": "h!",
-        "damage": "0",
-        "startupFrames": "20",
-        "blockFrames": "+24g",
-        "hitFrames": "+24g",
-        "counterHitFrames": "+24g",
-        "notes": "Rage drive"
-    },
-    {
         "command": "1",
         "hitLevel": "h",
         "damage": "7",
@@ -66,9 +46,9 @@ export const ArmorKing: CharacterFrameData[] = [
         "hitLevel": "l, m",
         "damage": "10, 12",
         "startupFrames": "",
-        "blockFrames": "-2",
-        "hitFrames": "+5",
-        "counterHitFrames": "+5",
+        "blockFrames": "-1",
+        "hitFrames": "+7",
+        "counterHitFrames": "+7",
         "notes": ""
     },
     {
@@ -152,16 +132,6 @@ export const ArmorKing: CharacterFrameData[] = [
         "notes": ""
     },
     {
-        "command": "3+4, 1",
-        "hitLevel": "m, m (TJ)",
-        "damage": "10, 25",
-        "startupFrames": "",
-        "blockFrames": "0",
-        "hitFrames": "+2s",
-        "counterHitFrames": "+2s",
-        "notes": ""
-    },
-    {
         "command": "3+4, 2",
         "hitLevel": "m, m (TJ)",
         "damage": "10, 25",
@@ -204,7 +174,7 @@ export const ArmorKing: CharacterFrameData[] = [
     {
         "command": "f+3",
         "hitLevel": "m",
-        "damage": "15",
+        "damage": "17",
         "startupFrames": "16",
         "blockFrames": "-3",
         "hitFrames": "+4",
@@ -214,7 +184,7 @@ export const ArmorKing: CharacterFrameData[] = [
     {
         "command": "f+3, 4",
         "hitLevel": "m, m",
-        "damage": "15, 13",
+        "damage": "17, 10",
         "startupFrames": "",
         "blockFrames": "-7",
         "hitFrames": "+3",
@@ -224,12 +194,22 @@ export const ArmorKing: CharacterFrameData[] = [
     {
         "command": "f+3, 4, 3",
         "hitLevel": "m, m, h",
-        "damage": "15, 13, 22",
+        "damage": "17, 10, 23",
         "startupFrames": "",
         "blockFrames": "-7",
         "hitFrames": "KND",
         "counterHitFrames": "KND",
         "notes": "Tail Spin"
+    },
+    {
+        "command": "f+3, 4, 3 + b",
+        "hitLevel": "m, m,",
+        "damage": "17, 10",
+        "startupFrames": "",
+        "blockFrames": "-15",
+        "hitFrames": "",
+        "counterHitFrames": "",
+        "notes": ""
     },
     {
         "command": "f+4",
@@ -315,7 +295,7 @@ export const ArmorKing: CharacterFrameData[] = [
         "command": "d/f+1+2",
         "hitLevel": "m",
         "damage": "20",
-        "startupFrames": "25",
+        "startupFrames": "23",
         "blockFrames": "-7",
         "hitFrames": "KND",
         "counterHitFrames": "KND",
@@ -384,11 +364,11 @@ export const ArmorKing: CharacterFrameData[] = [
     {
         "command": "d+3",
         "hitLevel": "l",
-        "damage": "12",
+        "damage": "11",
         "startupFrames": "17",
         "blockFrames": "-12",
         "hitFrames": "+1",
-        "counterHitFrames": "+1",
+        "counterHitFrames": "+9",
         "notes": ""
     },
     {
@@ -462,6 +442,16 @@ export const ArmorKing: CharacterFrameData[] = [
         "notes": ""
     },
     {
+        "command": "d+1+4 or d+2+3, 2",
+        "hitLevel": "l",
+        "damage": "20",
+        "startupFrames": "19",
+        "blockFrames": "-13",
+        "hitFrames": "+5",
+        "counterHitFrames": "KND",
+        "notes": ""
+    },
+    {
         "command": "d/b+2",
         "hitLevel": "m",
         "damage": "10",
@@ -476,9 +466,9 @@ export const ArmorKing: CharacterFrameData[] = [
         "hitLevel": "m, m",
         "damage": "10, 20",
         "startupFrames": "",
-        "blockFrames": "-16",
-        "hitFrames": "KND",
-        "counterHitFrames": "KND",
+        "blockFrames": "-13",
+        "hitFrames": "+21",
+        "counterHitFrames": "+21",
         "notes": ""
     },
     {
@@ -688,7 +678,7 @@ export const ArmorKing: CharacterFrameData[] = [
         "startupFrames": "21 js17",
         "blockFrames": "-8",
         "hitFrames": "+5",
-        "counterHitFrames": "KND",
+        "counterHitFrames": "Launch",
         "notes": ""
     },
     {
@@ -1220,5 +1210,25 @@ export const ArmorKing: CharacterFrameData[] = [
         "hitFrames": "+7g~+17g",
         "counterHitFrames": "+7g~+17g",
         "notes": ""
+    },
+    {
+        "command": "In rage b+3+4",
+        "hitLevel": "m (throw)",
+        "damage": "55",
+        "startupFrames": "20",
+        "blockFrames": "-22",
+        "hitFrames": "throw",
+        "counterHitFrames": "throw",
+        "notes": "Rage art"
+    },
+    {
+        "command": "In rage f, N, d, d/f+1+2",
+        "hitLevel": "h!",
+        "damage": "0",
+        "startupFrames": "20",
+        "blockFrames": "+24g",
+        "hitFrames": "+24g",
+        "counterHitFrames": "+24g",
+        "notes": "Rage drive"
     }
 ];
