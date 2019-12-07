@@ -51,12 +51,6 @@ export class FrameDataComponent implements OnInit {
     return Object.keys(this.availableCharacters);
   }
 
-  /* A trick to trigger the native event emitter for the filter */
-  forceFilterUpdate() {
-    this.dataSource.filter = " " + this.dataSource.filter;
-    this.dataSource.filter = this.dataSource.filter.slice(1);
-  }
-
   updateFilterType(filterValue: string) {
     this.dataSource.filterPredicate = fn_applyFilter(filterValue);
   }

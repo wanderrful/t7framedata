@@ -11,7 +11,7 @@
     "deploy": "ng build --prod --base-href https://wanderrful.github.io/t7framedata/ && touch dist/tekken7-framedata/.nojekyll && npx angular-cli-ghpages --dir dist/tekken7-framedata",
     "heroku-postbuild": "npm i && ng build --prod",
     "start:local": "ng build --prod && npm start",
-    "start:watch": "ng start",
+    "start:watch": "ng serve -o",
     "parseTSV": "node utils/parseTSV/index.js"
   },
   "homepage": "https://wanderrful.github.io/t7framedata/",
