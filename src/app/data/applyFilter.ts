@@ -1,25 +1,20 @@
 import { CharacterFrameData, CharacterFrameDataHeaders } from './framedata.interface';
-import { FrameDataComponent } from '../frame-data/frame-data.component';
 import { _fn_parseHitData } from "./helpers";
 
-export const fn_applyFilter = (defaultFn: Function, componentRef: FrameDataComponent): ((data: CharacterFrameData, filter: string) => boolean) => (data: CharacterFrameData, filter: string) => {
+export const fn_applyFilter = (filterType: string): ((data: CharacterFrameData, filter: string) => boolean) => (data: CharacterFrameData, filter: string) => {
     // Filter out the special, passive params
-    let specialParams = [];
     let normalParams = '';
+    const specialParams = /\?.*?\?/.exec(filter) || [];
     const tokenizedFilter = filter.split(" ");
     tokenizedFilter.forEach(t => {
-        if (!!t.match(/\?.*\?/)) {
-            specialParams.push(t);
-        } else {
-            normalParams += t;
-        }
+        if (!specialParams.includes(t)) normalParams += " " + t;
     });
 
     // Extend the default MatSort algorithm
-    let basicSearchResult = defaultFn(data, normalParams);
+    let basicSearchResult = filterPredicate(data, normalParams);
 
     // Filter by column, if needed
-    const filterColumn = componentRef.filterColumn;
+    const filterColumn = filterType;
     if (filterColumn !== "All" && filter.trim().length > 0) {
         for (let column in data) {
             if (CharacterFrameDataHeaders[column] === filterColumn) {
@@ -89,7 +84,7 @@ export const fn_applyFilter = (defaultFn: Function, componentRef: FrameDataCompo
 };
 
 // The default MatSort algorithm, for reference
-const filterPredicate: ((data: FrameDataComponent, filter: string) => boolean) = (data: FrameDataComponent, filter: string): boolean => {
+const filterPredicate: ((data: CharacterFrameData, filter: string) => boolean) = (data: CharacterFrameData, filter: string): boolean => {
     const dataStr = Object.keys(data).reduce((currentTerm: string, key: string) => {
         return currentTerm + (data as { [key: string]: any })[key] + '◬';
     }, '').toLowerCase();

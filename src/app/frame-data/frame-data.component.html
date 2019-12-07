@@ -25,7 +25,7 @@
         <button mat-fab color="accent" (click)="sidenav.toggle()" class="btn-menu">
             <mat-icon>menu</mat-icon>
         </button>
-        <header class="header">{{availableCharacters[title]}}</header>
+        <header class="header">{{title | titlecase}}</header>
 
         <main class="framedata">
             <div class="framedata__form">
@@ -35,7 +35,7 @@
                     </mat-form-field>
                     <mat-form-field>
                         <mat-label>Column</mat-label>
-                        <mat-select [(value)]="filterColumn" (selectionChange)="forceFilterUpdate()">
+                        <mat-select [(value)]="filterColumn" (selectionChange)="updateFilterType($event.value)">
                             <mat-option>All</mat-option>
                             <mat-option *ngFor="let column of displayedColumnNames" [value]="column">{{column}}
                             </mat-option>

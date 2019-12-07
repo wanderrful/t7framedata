@@ -74,6 +74,7 @@ header {
 .mat-row:nth-child(odd) {
     background-color: var(--off-white);
 }
+
 /* Forcing uniform column widths */
 td[class*=" mat-column-"], th[class*=" mat-column-"] {
     width: 5rem;

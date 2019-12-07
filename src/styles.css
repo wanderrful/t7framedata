@@ -40,13 +40,14 @@ div[class^="mat-form-field-"], div[class^="mat-select-"], .mat-form-field-label,
 .mat-sidenav {
     background-color: var(--off-white) !important;
 }
-.mat-simple-snackbar-container {
+.mat-snack-bar-container {
     background-color: var(--off-white);
+    height: 54px;
 }
 .mat-simple-snackbar span {
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-weight: bold;
-    color: var(--strong-pink);
+    color: var(--off-black);
     margin: auto;
     text-align: center;
 }
